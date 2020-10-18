@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Indie+Flower&display=swap');
+
+
+
+body {
+  counter-reset: checked-sum, unchecked-sum;
+  font-family: 'Caveat', cursive;
+  font-family: 'Indie Flower', cursive;
+  font-size: 22px;
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 4em;
+  border: 0;
+  background-image: url('/images/background.png');
+}
+
+
+main{
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+  border: 1px dashed #ccc;
+}
+
+
+section {
+  margin: 0 2em ;
+}
+
+
+section h2{
+  text-align: center;
+}
+
+header{
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 30px;
+  border: 1px dashed #ccc;
+}
+header h1:before {
+  content: url('/images/ornament_left.png') '  ';
+}
+
+header h1:after {
+  content: '  ' url('/images/ornament_right.png');
+}
+
+input[type="checkbox"] {
+  counter-increment: unchecked-sum;
+  margin-top: 7px;
+}
+
+input[type="checkbox"]:checked {
+  counter-increment: checked-sum;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 1em;
+  grid-column-gap: 3em;
+  grid-template-areas:
+    "p-title d-title" 
+    "pending1 done1"
+    "pending2 done2"
+    "pending3 done3"
+    "pending4 done4"
+    "pending5 done5"
+    "pending6 done6";
+}
+
+.list-container label{
+  margin-left: 25px; 
+}
+
+h3.pending{
+  grid-area: p-title;
+  padding-right: 10px
+}
+
+h3.done{
+  grid-area: d-title;
+}
+
+// to-do list
+//$base-color: #036;
+
+@for $i from 1 through 6 {
+  input[id=item#{$i}], label[for=item#{$i}]{
+    grid-area: pending#{$i};
+  }
+  
+  input[id=item#{$i}]:checked + label[for=item#{$i}], 
+  input[id=item#{$i}]:checked{
+    grid-area: done#{$i};
+    text-decoration: line-through;
+  }
+}
+
+@for $i from 1 through 2 {
+  input[id=another-item#{$i}], label[for=another-item#{$i}]{
+    grid-area: pending#{$i};
+    color: fuchsia;
+  }
+  
+  input[id=another-item#{$i}]:checked + label[for=another-item#{$i}], 
+  input[id=another-item#{$i}]:checked{
+    grid-area: done#{$i};
+    text-decoration: line-through;
+    color: aquamarine;
+  }
+}
+
+.done::after {
+  content: " " counter(checked-sum);
+}
+
+.pending::after {
+   content: " " counter(unchecked-sum);
+}
+
+@-moz-document url-prefix(){
+  input[type="checkbox"] {
+   //margin-left: -21rem;
+   margin-left: -31rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body{
+    padding: 1.5em;
+    font-size: 16px;
+  }
+  main{
+    padding: 0 1em 0 1.5em;
+    word-wrap: break-word;
+    flex-direction: column;
+  }
+
+  input[type="checkbox"] {
+    margin-top: 0px;
+  }
+
+  header{
+    font-size: 22px;
+  }
+
+  header h1:before {
+    content: '  ';
+  }
+
+  header h1:after {
+    content: '  ';
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Your favorite to-do-list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="dist/bundle.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>My To-Do Lists</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Hello, I'm the main list.</h2>
+      <div class="list-container">
+
+        <input id="item1" type="checkbox" checked>
+        <label for="item1">Create a to-do list</label>
+
+        <input id="item2" type="checkbox">
+        <label for="item2">Prepare for <strong>the test</strong></label>
+
+        <input id="item3" type="checkbox">
+        <label for="item3">Learn CSS</label>
+        
+        <input id="item4" type="checkbox">
+        <label for="item4">Binge watch every episode of Rick and Morty (again)</label>
+
+        <input id="item5" type="checkbox">
+        <label for="item5">Buy more G-Fuel</label>
+
+        <input id="item6" type="checkbox">
+        <label for="item6">Download the <em>Brave</em> browser</label>
+
+        <h3 class="done">Done</h3>
+        <h3 class="pending">Pending</h3>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Hello, I'm another list.</h2>
+      <div class="list-container">
+        <h3>My purpose in life is...</h3>
+
+        <input id="another-item1" type="checkbox">
+        <label for="another-item1">...to <strong>NOT</strong> look like <em>THAT</em> list! ☝️</label>
+
+        <input disabled id="another-item2" type="checkbox">
+        <label for="another-item2">...to explode! 💥</label>
+
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
