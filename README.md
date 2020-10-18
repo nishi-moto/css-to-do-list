@@ -16,8 +16,6 @@ Requirements:
 I was allowed to:
 * Use SASS,
 * Use any CSS properties,
-* Add/rename/remove CSS classes and ID's,
-* Add/rephrase/remove text content and list items.
 
 _I was not allowed to:_
 * Change the HTML structure,
